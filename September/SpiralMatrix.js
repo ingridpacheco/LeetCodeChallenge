@@ -1,10 +1,18 @@
+/*
+Given an m x n matrix, return all elements of the matrix in spiral order.
+
+Ex:
+    Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+    Output: [1,2,3,6,9,8,7,4,5]
+*/
+
 // Solution 1
 
 /**
  * @param {number[][]} matrix
  * @return {number[]}
  */
- var spiralOrder = function(matrix) {   
+var spiralOrder = function(matrix) {   
     
     if (matrix.length === 1) return matrix[0]
     
@@ -25,34 +33,34 @@
     while(output.length < maxQtd) {
         output.push(matrix[x][y])
         switch (dir) {
-          case 'right':
-            y += 1
-            if (y === maxRight) {
-                maxRight -= 1
-                dir = 'down'
-            }
-            break;
-          case 'down':
-            x += 1
-            if (x === maxDown) {
-                maxDown -= 1
-                dir = 'left'
-            }
-            break;
-          case 'left':
-            y -= 1
-            if (y === maxLeft) {
-                maxLeft += 1
-                dir = 'up'
-            }
-            break;
-          case 'up':
-            x -= 1
-            if (x === maxUp) {
-                maxUp += 1
-                dir = 'right'
-            }
-            break;
+            case 'right':
+                y += 1
+                if (y === maxRight) {
+                    maxRight -= 1
+                    dir = 'down'
+                }
+                break;
+            case 'down':
+                x += 1
+                if (x === maxDown) {
+                    maxDown -= 1
+                    dir = 'left'
+                }
+                break;
+            case 'left':
+                y -= 1
+                if (y === maxLeft) {
+                    maxLeft += 1
+                    dir = 'up'
+                }
+                break;
+            case 'up':
+                x -= 1
+                if (x === maxUp) {
+                    maxUp += 1
+                    dir = 'right'
+                }
+                break;
         }
     }
     return output
@@ -64,7 +72,7 @@
  * @param {number[][]} matrix
  * @return {number[]}
  */
- var spiralOrder2 = function(matrix) {   
+var spiralOrder2 = function(matrix) {   
     
     if (matrix.length === 1) return matrix[0]
     
